@@ -22,7 +22,7 @@ const options = {
       if (userSelectedDate<Date.now()) {
           buttonStart.setAttribute('disabled', '');
           iziToast.error({
-              iconUrl: '/img/close.png',
+              iconUrl: './img/close.png',
               position: 'topRight',
               message: 'Please choose a date in the future',
 });          
