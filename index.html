@@ -7,11 +7,11 @@
     
     <script type="module" crossorigin src="/goit-js-hw-10/assets/modulepreload-polyfill-ec808ebb.js"></script>
     <script type="module" crossorigin src="/goit-js-hw-10/assets/vendor-651d7991.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-10/assets/1-timer-83a3732d.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-10/assets/2-snackbar-4ed993c7.js"></script>
-    <link rel="stylesheet" href="/goit-js-hw-10/assets/1-timer-074df920.css">
+    <script type="module" crossorigin src="/goit-js-hw-10/assets/1-timer-ab791c17.js"></script>
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/1-timer-c4289749.css">
     <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-80d0dc0f.css">
     <link rel="stylesheet" href="/goit-js-hw-10/assets/index-a6f2507d.css">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/2-snackbar-55384a94.css">
   </head>
   <body>
     <!DOCTYPE html>
@@ -26,28 +26,28 @@
   </head>
   <body>
     <section>
-      <h1> Timer</h1>
-      <input type="text" id="datetime-picker" />
-      <button type="button" data-start>Start</button>
-      
-      <div class="timer">
-        <div class="field">
-          <span class="value" data-days>00</span>
-          <span class="label">Days</span>
+        <h1> Timer</h1>
+        <input type="text" id="datetime-picker" />
+        <button type="button" data-start>Start</button>
+        
+        <div class="timer">
+          <div class="field">
+            <span class="value" data-days>00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="field">
+            <span class="value" data-hours>00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="field">
+            <span class="value" data-minutes>00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="field">
+            <span class="value" data-seconds>00</span>
+            <span class="label">Seconds</span>
+          </div>
         </div>
-        <div class="field">
-          <span class="value" data-hours>00</span>
-          <span class="label">Hours</span>
-        </div>
-        <div class="field">
-          <span class="value" data-minutes>00</span>
-          <span class="label">Minutes</span>
-        </div>
-        <div class="field">
-          <span class="value" data-seconds>00</span>
-          <span class="label">Seconds</span>
-        </div>
-      </div>
     </section>
     
   </body>
@@ -65,6 +65,26 @@
   <body>
     <section>
       <h1>Snackbar</h1>
+      <form class="form">
+        <label>
+          Delay (ms)
+          <input type="number" name="delay" required />
+        </label>
+    
+        <fieldset>
+          <legend>State</legend>
+          <label>
+            <input type="radio" name="state" value="fulfilled" required/>
+            Fulfilled
+          </label>
+          <label>
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+          </label>
+        </fieldset>
+      
+        <button type="submit">Create notification</button>
+      </form>
     </section>
     
   </body>
