@@ -1,0 +1,2 @@
+import"./vendor-651d7991.js";const n=document.querySelector(".form"),o=document.querySelector("[name=delay]"),l=document.querySelector("[type=submit]");o.addEventListener("change",t=>{const e=n.elements.delay.value;console.log(e)});l.addEventListener("submit",()=>{new Promise((t,e)=>{setTimeout(()=>{t(`Fulfilled promise in ${delay}ms`),e(`Rejected promise in ${delay}ms`)},delay)})});
+//# sourceMappingURL=2-snackbar-80e3e821.js.map
