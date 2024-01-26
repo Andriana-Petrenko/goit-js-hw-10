@@ -24,7 +24,7 @@ const options = {
           iziToast.error({
               messageColor:'#FFF',
               color:'#EF4040',
-              iconUrl: './img/bi_x-octagon.png',
+              iconUrl: '/img/bi_x-octagon.png',
               position: 'topRight',
               message: 'Please choose a date in the future',
 });          
