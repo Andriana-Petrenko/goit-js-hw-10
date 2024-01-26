@@ -21,6 +21,7 @@ function createPromise(delay,state) {
                         title: 'OK',
                         titleColor: '#FFF',
                         messageColor: '#FFF',
+                        iconUrl: './img/bi_check2-circle.png',
                         color: '#59A10D',
                         position: 'topRight',
                         message: `Fulfilled promise in ${delay} ms`,
@@ -30,6 +31,7 @@ function createPromise(delay,state) {
                     iziToast.error({
                         title: 'Error',
                         titleColor: '#FFF',
+                        iconUrl: '../img/bi_x-octagon.png',
                         messageColor: '#FFF',
                         color: '#EF4040',
                         position: 'topRight',
