@@ -2,26 +2,47 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector('.form');
-const inputDelay = document.querySelector('[name=delay]');
-const buttonCreate = document.querySelector('[type=submit]');
+form.addEventListener('submit', inputUserDelay)
+ 
+function inputUserDelay(e) {
+    e.preventDefault();
+    const delay = form.delay.value;
+    const state = form.state.value;
+    createPromise(delay,state);
+    form.reset();
+}
+ 
+function createPromise(delay,state) {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (state === 'fulfilled') {
+                resolve(
+                    iziToast.success({
+                        title: 'OK',
+                        titleColor: '#FFF',
+                        messageColor: '#FFF',
+                        iconUrl: './img/bi_check2-circle.png',
+                        color: '#59A10D',
+                        position: 'topRight',
+                        message: `Fulfilled promise in ${delay} ms`,
+}))
+    } else {
+                reject(
+                    iziToast.error({
+                        title: 'Error',
+                        titleColor: '#FFF',
+                        iconUrl: './img/bi_x-octagon.png',
+                        messageColor: '#FFF',
+                        color: '#EF4040',
+                        position: 'topRight',
+                        message: `Rejected promise in ${delay} ms`,
+}))
+}
+   },delay)
+ })
 
-
-
-inputDelay.addEventListener('change', (e) => {
-    const delay = form.elements.delay.value;
-    console.log(delay);
- });
-
-buttonCreate.addEventListener('submit',() =>{
-    // e.preventDefault;
-const promise=new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(`Fulfilled promise in ${delay}ms`);
-        reject (`Rejected promise in ${delay}ms`)
-  }, delay);
-})
-      
-})
-
-
+    promise
+        .then((success) => { return success })
+        .catch((error) => { return error })
+ }
 
