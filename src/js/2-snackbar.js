@@ -1,7 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import closeIcon from './img/bi_x-octagon.png';
-import successIcon from './img/bi_check2-circle.png';
+import closeIcon from '../img/bi_x-octagon.png';
+import successIcon from '../img/bi_check2-circle.png';
 
 const form = document.querySelector('.form');
 form.addEventListener('submit', inputUserDelay)
