@@ -2,6 +2,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import 'izitoast/dist/css/iziToast.min.css';
+import closeIcon from './img/bi_x-octagon.png';
 
 const inputPicker = document.querySelector('#datetime-picker');
 const buttonStart = document.querySelector('[data-start]');
@@ -24,7 +25,7 @@ const options = {
           iziToast.error({
               messageColor:'#FFF',
             color: '#EF4040',
-              iconUrl: '../img/bi_x-octagon.png',
+              iconUrl: closeIcon,
               position: 'topRight',
               message: 'Please choose a date in the future',
 });          

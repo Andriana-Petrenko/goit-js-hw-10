@@ -1,5 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import closeIcon from './img/bi_x-octagon.png';
+import successIcon from './img/bi_check2-circle.png';
 
 const form = document.querySelector('.form');
 form.addEventListener('submit', inputUserDelay)
@@ -21,7 +23,7 @@ function createPromise(delay,state) {
                         title: 'OK',
                         titleColor: '#FFF',
                         messageColor: '#FFF',
-                        iconUrl: './img/bi_check2-circle.png',
+                        iconUrl: successIcon,
                         color: '#59A10D',
                         position: 'topRight',
                         message: `Fulfilled promise in ${delay} ms`,
@@ -31,7 +33,7 @@ function createPromise(delay,state) {
                     iziToast.error({
                         title: 'Error',
                         titleColor: '#FFF',
-                        iconUrl: '../img/bi_x-octagon.png',
+                        iconUrl: closeIcon,
                         messageColor: '#FFF',
                         color: '#EF4040',
                         position: 'topRight',
