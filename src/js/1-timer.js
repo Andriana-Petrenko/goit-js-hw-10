@@ -10,56 +10,58 @@ const daysTimer = document.querySelector('[data-days]');
 const hoursTimer = document.querySelector('[data-hours]');
 const minutesTimer = document.querySelector('[data-minutes]');
 const secondsTimer = document.querySelector('[data-seconds]');
-buttonStart.setAttribute('disabled', '');
+
+
+buttonStart.disabled = true;
 let userSelectedDate = null;
+
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-    onClose(selectedDates) {
-        userSelectedDate = selectedDates[0].getTime();
-        buttonStart.removeAttribute('disabled');
-      if (userSelectedDate<Date.now()) {
-          buttonStart.setAttribute('disabled', '');
-          iziToast.error({
-              messageColor:'#FFF',
-            color: '#EF4040',
-              iconUrl: closeIcon,
-              position: 'topRight',
-              message: 'Please choose a date in the future',
-});          
-}   
-}
+  onClose(selectedDates) {
+    userSelectedDate = selectedDates[0].getTime();
+    buttonStart.disabled = false;
+    
+    if (userSelectedDate < Date.now()) {
+      buttonStart.disabled = true;
+      iziToast.error({
+        messageColor: '#FFF',
+        color: '#EF4040',
+        iconUrl: closeIcon,
+        position: 'topRight',
+        message: 'Please choose a date in the future',});
+    };
+  },
 };
 
 flatpickr(inputPicker, options);
 
-
-buttonStart.addEventListener('click', onClickStart)
+buttonStart.addEventListener('click', onClickStart);
 
 function onClickStart() {
-    const intervalId=setInterval(() => {
-    let timeToLeft = userSelectedDate-Date.now();
-        
-      if (timeToLeft<=0) {
-          clearInterval(intervalId);
-          buttonStart.setAttribute('disabled','');
-          iziToast.info({
-              position: 'center',
-              message: 'It is your time!',
-          });
-          return;
-        };
-        
+  buttonStart.disabled = true;
+  const intervalId = setInterval(() => {
+  let timeToLeft = userSelectedDate - Date.now();
+  inputPicker.disabled = true;
+  
+    if (timeToLeft<=0) {
+        clearInterval(intervalId);
+        inputPicker.disabled = false;
+        iziToast.info({
+            position: 'center',
+            message: 'It is your time!',});
+        return;
+      }
+  
     const { days, hours, minutes, seconds } = convertMs(timeToLeft);
     daysTimer.textContent = `${addLeadingZero(days)}`;
     hoursTimer.textContent = `${addLeadingZero(hours)}`;
     minutesTimer.textContent = `${addLeadingZero(minutes)}`;
     secondsTimer.textContent = `${addLeadingZero(seconds)}`;
-    }, 1000);
+  },1000);
 }
-  
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -76,10 +78,9 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-    return {days,hours,seconds,minutes};
+    return {days,hours,minutes,seconds};
 };
 
 function addLeadingZero(value){
-return value.toString().padStart(2, '0'); 
+return value.toString().padStart(2, '0');
 }
-

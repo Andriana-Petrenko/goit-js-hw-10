@@ -8,7 +8,7 @@ form.addEventListener('submit', inputUserDelay)
  
 function inputUserDelay(e) {
     e.preventDefault();
-    const delay = form.delay.value;
+    const delay = Number(form.delay.value);
     const state = form.state.value;
     createPromise(delay,state);
     form.reset();
@@ -44,7 +44,7 @@ function createPromise(delay,state) {
  })
 
     promise
-        .then((success) => { return success })
-        .catch((error) => { return error })
+        .then()
+        .catch()
  }
 
