@@ -17,7 +17,7 @@ function inputUserDelay(e) {
                         messageColor: '#FFF',
                         color: '#EF4040',
                         position: 'topRight',
-            message: `Enter positive number`,
+                        message: `Enter positive number`,
         })
         return;
     } 
